@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Monster Survivors - Survive the Horde! | FLCL.Online</title>
+    <meta name="description" content="Jump into the action in Monster Survivors! A thrilling online game where you fight endless waves of monsters, upgrade your skills, and survive as long as you can. Play for free now at flcl.online.">
+    <meta name="keywords" content="Monster Survivors, online game, survival game, action game, free game, browser game, horde survival, flcl.online">
+    <link rel="canonical" href="http://flcl.online/">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://placehold.co/32x32/ff0000/000000?text=MS" type="image/x-icon">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles to enhance the theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212; /* A slightly softer black */
+        }
+        .text-shadow-red {
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+        }
+        .border-glow {
+            border-color: #dc2626; /* red-600 */
+            box-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
+        }
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-6xl p-4 md:p-8">
+
+        <!-- Header Section -->
+        <header class="text-center mb-8">
+            <!-- H1 Tag: The primary keyword and game title -->
+            <h1 class="text-5xl md:text-7xl font-black text-red-600 uppercase tracking-wider text-shadow-red">
+                Monster Survivors
+            </h1>
+            <!-- One-sentence introduction -->
+            <p class="text-lg md:text-xl text-gray-300 mt-2">
+                Face the relentless horde, evolve your power, and survive the night!
+            </p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Game Iframe Section -->
+            <section class="mb-12">
+                <div class="iframe-container rounded-lg border-2 border-glow">
+                    <!-- The online game iframe -->
+                    <iframe 
+                        src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html"
+                        allowfullscreen="true"
+                        scrolling="no"
+                        title="Monster Survivors Game">
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- Game Details Section -->
+            <section class="bg-gray-900/50 rounded-lg p-6 md:p-8 border border-gray-800">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Left Column: Description -->
+                    <div class="prose prose-invert max-w-none text-gray-300">
+                        <h2 class="text-3xl font-bold text-red-500 border-b-2 border-red-500/30 pb-2">About the Game</h2>
+                        <p>
+                            <strong>Monster Survivors</strong> is an intense, action-packed survival game that throws you into a desperate fight against endless waves of menacing creatures. Trapped in a cursed land, your only goal is to survive as long as possible. Each monster you defeat grants you experience, allowing you to level up and unlock powerful new abilities and devastating weapon upgrades.
+                        </p>
+                        <p>
+                            Strategy is key. Will you focus on area-of-effect attacks to control the crowd, or enhance your speed and defense to weave through danger? Every choice matters and every run is a new challenge.
+                        </p>
+                    </div>
+
+                    <!-- Right Column: How to Play & Features -->
+                    <div class="prose prose-invert max-w-none text-gray-300">
+                        <h2 class="text-3xl font-bold text-red-500 border-b-2 border-red-500/30 pb-2">How to Play</h2>
+                        <p>
+                            The controls are simple, but the challenge is immense.
+                        </p>
+                        <ul>
+                            <li><strong>Movement:</strong> Use WASD or Arrow Keys to move your character.</li>
+                            <li><strong>Attacking:</strong> Your character attacks automatically. Focus on positioning and dodging!</li>
+                            <li><strong>Upgrades:</strong> Collect experience gems from fallen enemies to level up. Choose one of three random upgrades each time to build your power.</li>
+                        </ul>
+
+                        <h2 class="text-3xl font-bold text-red-500 border-b-2 border-red-500/30 pb-2 mt-6">Key Features</h2>
+                        <ul>
+                            <li><strong>Endless Horde Mode:</strong> Fight against ever-growing waves of monsters.</li>
+                            <li><strong>Evolving Abilities:</strong> Hundreds of upgrade combinations for a unique experience every game.</li>
+                            <li><strong>Simple Controls, Deep Strategy:</strong> Easy to learn, difficult to master.</li>
+                            <li><strong>Instant Action:</strong> Play directly in your browser with no downloads required.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 py-4 border-t border-gray-800">
+            <p class="text-gray-500">&copy; 2025 <a href="http://flcl.online/" class="hover:text-red-500 transition-colors">flcl.online</a>. All rights reserved. Survive the chaos!</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
