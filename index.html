@@ -1,207 +1,248 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLCL - 精选在线游戏聚合平台</title>
-    <!-- 外部资源 -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <!-- Tailwind 配置 -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        dark: '#0F1118',
-                        primary: '#7E22CE',
-                        accent: '#10B981',
-                        light: '#E5E7EB',
-                    },
-                    fontFamily: {
-                        game: ['"Rajdhani"', 'sans-serif'],
-                    },
-                }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monster Survivors — Play Free Online | MonsterSurvivors.com</title>
+  <meta name="description" content="Play Monster Survivors free in your browser. Fast-paced wave survival, intuitive controls, and endless builds. No download required." />
+  <link rel="canonical" href="https://monstersurvivors.com/" />
+  <meta name="theme-color" content="#0A84FF" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Monster Survivors — Play Free Online" />
+  <meta property="og:description" content="Fast-paced wave survival with endless builds. Play instantly on MonsterSurvivors.com." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://monstersurvivors.com/" />
+  <meta property="og:image" content="https://monstersurvivors.com/og-cover.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Monster Survivors — Play Free Online" />
+  <meta name="twitter:description" content="Fast-paced wave survival, intuitive controls, endless builds. No download required." />
+  <meta name="twitter:image" content="https://monstersurvivors.com/og-cover.jpg" />
+
+  <!-- Favicon (replace with your real assets) -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config for Apple-like neutral palette + system blue accent
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            system: {
+              blue: '#0A84FF',    // iOS systemBlue (light)
+              blueDark: '#0A84FF' // For simplicity, same accent in dark
             }
+          }
         }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow-glow { text-shadow: 0 0 8px rgba(126, 34, 206, 0.6); }
-            .bg-grid { 
-                background-image: radial-gradient(rgba(126, 34, 206, 0.1) 1px, transparent 1px);
-                background-size: 20px 20px;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        @keyframes bounce-slow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-        }
-        .animate-bounce-slow { animation: bounce-slow 2s infinite; }
-        html { scroll-behavior: smooth; }
-    </style>
+      }
+    }
+  </script>
+
+  <style>
+    /* Minimal CSS helpers for iframe responsiveness and Apple-like polish */
+    .iframe-wrapper {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(10,132,255,0.08), transparent 60%),
+        radial-gradient(900px 500px at 10% -10%, rgba(10,132,255,0.05), transparent 55%);
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    @supports not (aspect-ratio: 16 / 9) {
+      .iframe-wrapper {
+        position: relative;
+        padding-top: 56.25%;
+        height: 0;
+      }
+      .iframe-wrapper > iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    @media (prefers-color-scheme: dark) {
+      body { color-scheme: dark; }
+    }
+  </style>
+
+  <!-- Structured Data (VideoGame) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Monster Survivors",
+    "url": "https://monstersurvivors.com/",
+    "inLanguage": "en",
+    "genre": ["Action", "Survival", "Roguelike"],
+    "operatingSystem": "Web Browser",
+    "applicationCategory": "Game, BrowserGame",
+    "playMode": "SinglePlayer",
+    "image": "https://monstersurvivors.com/og-cover.jpg",
+    "author": { "@type": "Organization", "name": "MonsterSurvivors.com" },
+    "publisher": { "@type": "Organization", "name": "MonsterSurvivors.com" },
+    "description": "Fast-paced wave survival with evolving builds. Play instantly for free.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
 </head>
-<body class="bg-dark text-light font-game min-h-screen">
-    <!-- 导航栏 -->
-    <nav class="fixed top-0 left-0 right-0 bg-dark/90 backdrop-blur-md z-50 border-b border-primary/30 px-4 py-3 transition-all duration-300">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-white text-shadow-glow">
-                FLCL<span class="text-accent">GAMES</span>
+<body class="bg-white text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-200">
+  <!-- Header -->
+  <header class="w-full border-b border-slate-200/70 dark:border-slate-800/70 bg-white/70 dark:bg-slate-950/50 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a href="/" class="inline-flex items-center gap-2 group">
+        <span class="h-2.5 w-2.5 rounded-full bg-system-blue shadow-[0_0_0_3px_rgba(10,132,255,0.15)]"></span>
+        <span class="text-lg font-semibold tracking-tight">MonsterSurvivors<span class="text-system-blue">.com</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#play" class="hover:text-system-blue transition-colors">Play</a>
+        <a href="#about" class="hover:text-system-blue transition-colors">About</a>
+        <a href="#how-to-play" class="hover:text-system-blue transition-colors">How to Play</a>
+        <a href="#faq" class="hover:text-system-blue transition-colors">FAQ</a>
+      </nav>
+      <a href="#play" class="ml-4 inline-flex items-center rounded-full bg-system-blue text-white px-4 py-2 text-sm font-medium shadow hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-system-blue/60 dark:focus:ring-offset-slate-950">
+        Play Now
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+      <div class="absolute -top-28 right-0 h-72 w-72 rounded-full bg-system-blue/10 blur-3xl"></div>
+      <div class="absolute -top-48 left-0 h-80 w-80 rounded-full bg-system-blue/5 blur-3xl"></div>
+    </div>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+            Monster Survivors — Free Browser Survival Action
+          </h1>
+          <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+            Outlast relentless waves, level up fast, and craft unstoppable builds. Play instantly — no download, no paywall.
+          </p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href="#play" class="inline-flex items-center justify-center rounded-lg bg-system-blue text-white px-5 py-3 font-medium shadow hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-system-blue/60 dark:focus:ring-offset-slate-950">
+              Start Playing
             </a>
-            
-            <div class="hidden md:flex items-center gap-6">
-                <a href="index.html" class="text-light/70 hover:text-white transition-colors">
-                    <i class="fa fa-home mr-1"></i> 首页
-                </a>
-                <a href="#" class="text-light/70 hover:text-white transition-colors">
-                    <i class="fa fa-gamepad mr-1"></i> 游戏库
-                </a>
-                <a href="#" class="text-light/70 hover:text-white transition-colors">
-                    <i class="fa fa-trophy mr-1"></i> 排行榜
-                </a>
-            </div>
-            
-            <div class="flex items-center gap-4">
-                <button class="md:hidden text-light hover:text-accent transition-colors">
-                    <i class="fa fa-search text-xl"></i>
-                </button>
-                <a href="#" class="text-light hover:text-accent transition-colors">
-                    <i class="fa fa-user-circle text-xl"></i>
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 首屏推荐 -->
-    <section class="relative h-screen pt-16 bg-grid">
-        <div class="absolute inset-0 z-0">
-            <img src="https://picsum.photos/id/237/1920/1080.webp" alt="Monster Survivors 战斗场景" 
-                 class="w-full h-full object-cover filter brightness-30 contrast-120">
-        </div>
-        
-        <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-4">
-            <span class="bg-accent/20 text-accent border border-accent/40 text-xs px-4 py-1.5 rounded-full mb-6 uppercase tracking-wider animate-pulse">
-                今日热门 · 生存推荐
-            </span>
-            <h1 class="text-white text-5xl md:text-7xl font-bold mb-4 text-shadow-glow max-w-2xl">
-                Monster Survivors
-            </h1>
-            <p class="text-light/80 text-lg md:text-xl mb-10 max-w-lg">
-                深夜的森林被怪物入侵，你需要靠不断战斗升级技能，撑过15波攻击才能生存！
-            </p>
-            <a href="game-monster.html" 
-               class="bg-accent hover:bg-accent/90 text-dark text-xl font-bold px-10 py-4 rounded-full transition-all transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent/30">
-                立即战斗 <i class="fa fa-play ml-2"></i>
+            <a href="#about" class="inline-flex items-center justify-center rounded-lg border border-slate-200 px-5 py-3 font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-900">
+              Learn More
             </a>
+          </div>
+          <ul class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-slate-600 dark:text-slate-300">
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-system-blue"></span>No install</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-system-blue"></span>Keyboard & mouse</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-system-blue"></span>Optimized for mobile</li>
+          </ul>
         </div>
-        
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-light/60 animate-bounce-slow">
-            <i class="fa fa-chevron-down text-2xl"></i>
-            <p class="text-xs mt-2">查看更多生存游戏</p>
-        </div>
-    </section>
 
-    <!-- 其他游戏 -->
-    <section class="py-16 px-4 bg-dark/50" id="more-games">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 text-white">
-                更多<span class="text-accent">生存类</span>游戏
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 游戏项1 -->
-                <a href="#" class="group block">
-                    <div class="bg-dark/80 border border-primary/20 rounded-xl overflow-hidden shadow-lg hover:shadow-accent/10 transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative aspect-video overflow-hidden">
-                            <img src="https://picsum.photos/id/160/600/338.webp" alt="方块生存战" 
-                                 class="w-full h-full object-cover filter brightness-70 group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 left-3 bg-primary/80 text-white text-xs px-2 py-1 rounded">
-                                多人协作
-                            </span>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors">
-                                方块生存战
-                            </h3>
-                            <p class="text-light/60 text-sm mb-4">
-                                收集方块搭建防御，抵御怪物浪潮，支持2-4人联机
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                
-                <!-- 游戏项2 -->
-                <a href="#" class="group block">
-                    <div class="bg-dark/80 border border-primary/20 rounded-xl overflow-hidden shadow-lg hover:shadow-accent/10 transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative aspect-video overflow-hidden">
-                            <img src="https://picsum.photos/id/111/600/338.webp" alt="魔法生存者" 
-                                 class="w-full h-full object-cover filter brightness-70 group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 left-3 bg-accent/80 text-dark text-xs px-2 py-1 rounded">
-                                RPG元素
-                            </span>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors">
-                                魔法生存者
-                            </h3>
-                            <p class="text-light/60 text-sm mb-4">
-                                解锁冰、火、雷三系魔法，搭配技能树打造专属生存策略
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                
-                <!-- 游戏项3 -->
-                <a href="#" class="group block">
-                    <div class="bg-dark/80 border border-primary/20 rounded-xl overflow-hidden shadow-lg hover:shadow-accent/10 transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="relative aspect-video overflow-hidden">
-                            <img src="https://picsum.photos/id/1071/600/338.webp" alt="赛车逃亡" 
-                                 class="w-full h-full object-cover filter brightness-70 group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-3 left-3 bg-red-500/80 text-white text-xs px-2 py-1 rounded">
-                                竞速生存
-                            </span>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors">
-                                赛车逃亡
-                            </h3>
-                            <p class="text-light/60 text-sm mb-4">
-                                驾驶赛车躲避怪物追击，收集道具加速，生存到终点
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+        <div class="rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm p-2 bg-white/60 dark:bg-slate-900/50">
+          <div class="iframe-wrapper" id="play">
+            <iframe
+              src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html"
+              title="Monster Survivors — Play Online"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allow="fullscreen; gamepad; xr-spatial-tracking; accelerometer; autoplay"
+              class="h-full w-full border-0"
+            ></iframe>
+          </div>
+          <p class="sr-only">Embedded gameplay for Monster Survivors.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- 页脚 -->
-    <footer class="bg-dark border-t border-primary/20 py-8 px-4 text-light/50 text-sm">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <p>© 2025 FLCL GAMES · 所有游戏均来自第三方授权</p>
-            <div class="flex gap-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-accent transition-colors">关于我们</a>
-                <a href="#" class="hover:text-accent transition-colors">反馈问题</a>
-                <a href="#" class="hover:text-accent transition-colors">隐私政策</a>
-            </div>
+  <!-- About -->
+  <section id="about" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">What Is Monster Survivors?</h2>
+    <p class="mt-4 text-slate-600 dark:text-slate-300">
+      Monster Survivors is a fast-paced wave survival game where you defeat swarms of enemies, collect power-ups, and stack upgrades to create broken builds. Each run is short, punchy, and rewarding — perfect for quick sessions or deep min-max runs.
+    </p>
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-5 bg-white/60 dark:bg-slate-900/40">
+        <h3 class="font-semibold">Core Loop</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Survive waves, earn XP, pick upgrades, repeat. Skill and builds both matter.</p>
+      </div>
+      <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-5 bg-white/60 dark:bg-slate-900/40">
+        <h3 class="font-semibold">Progression</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Unlock characters, weapons, and meta perks to push higher difficulties.</p>
+      </div>
+      <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-5 bg-white/60 dark:bg-slate-900/40">
+        <h3 class="font-semibold">Controls</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">WASD to move, mouse to aim (if applicable). Mobile: on-screen controls.</p>
+      </div>
+      <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-5 bg-white/60 dark:bg-slate-900/40">
+        <h3 class="font-semibold">Performance</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Runs smoothly in modern browsers with fast load and low overhead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Play -->
+  <section id="how-to-play" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">How to Play</h2>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+      <li>Use the Play button to load the game instantly.</li>
+      <li>Move to dodge enemies and collect experience gems.</li>
+      <li>Pick upgrades that synergize with your current build.</li>
+      <li>Survive longer waves to unlock stronger perks and characters.</li>
+      <li>Experiment with different combos to break the meta.</li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Frequently Asked Questions</h2>
+    <div class="mt-6 space-y-6">
+      <details class="group rounded-lg border border-slate-200 dark:border-slate-800 p-5 bg-white/60 dark:bg-slate-900/40">
+        <summary class="cursor-pointer font-semibold flex items-center justify-between">
+          Is Monster Survivors free to play?
+          <span class="ml-3 text-system-blue transition-transform group-open:rotate-45">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">Yes. It is playable for free in your browser with no download.</p>
+      </details>
+      <details class="group rounded-lg border border-slate-200 dark:border-slate-800 p-5 bg-white/60 dark:bg-slate-900/40">
+        <summary class="cursor-pointer font-semibold flex items-center justify-between">
+          Does it work on mobile?
+          <span class="ml-3 text-system-blue transition-transform group-open:rotate-45">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">Yes. The page and iframe are responsive and optimized for touch.</p>
+      </details>
+      <details class="group rounded-lg border border-slate-200 dark:border-slate-800 p-5 bg-white/60 dark:bg-slate-900/40">
+        <summary class="cursor-pointer font-semibold flex items-center justify-between">
+          Which browsers are supported?
+          <span class="ml-3 text-system-blue transition-transform group-open:rotate-45">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">Recent versions of Chrome, Edge, Safari, and Firefox are recommended.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200/70 dark:border-slate-800/70 bg-white/70 dark:bg-slate-950/50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-600 dark:text-slate-400">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <p>&copy; <span id="year"></span> MonsterSurvivors.com. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#about" class="hover:text-system-blue">About</a>
+          <a href="#how-to-play" class="hover:text-system-blue">How to Play</a>
+          <a href="#faq" class="hover:text-system-blue">FAQ</a>
+          <a href="/privacy" class="hover:text-system-blue">Privacy</a>
         </div>
-    </footer>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('py-2', 'shadow-lg', 'shadow-primary/10');
-                nav.classList.remove('py-3');
-            } else {
-                nav.classList.add('py-3');
-                nav.classList.remove('py-2', 'shadow-lg', 'shadow-primary/10');
-            }
-        });
-    </script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-    
